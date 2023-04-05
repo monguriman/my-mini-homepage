@@ -13,12 +13,26 @@ export default function BulletinBoard() {
       setTopics(result);
       console.log(result);
     })
-  }, [router.asPath] )
+  }, [router.asPath, topics.length] )
 
+  //삭제버튼 클릭시 삭제 후 글목록을 재렌더링
+  const deleteTopic = (id) => {
+    const confirmation = confirm("정말로 삭제하시겠습니까?");
+    if (confirmation) {
+  fetch('http://localhost:2325/topics/' + id, {
+    method: "DELETE"
+  })
+    .then( resp => resp.json() )
+    .then( result => {
+      setTopics(topics.filter(topic => topic.id !== id));});
+    }};
+
+  //글목록과 삭제버튼 생성. 
   const lis = topics.map( (t) => {
-    return <li key={t.id}>
+    return <div><li key={t.id}>
       <Link href={"/read/"+t.id}>{t.title}</Link>
-    </li>
+      <button onClick={ (e) => deleteTopic(t.id) }>삭제</button>
+    </li></div>
   })
 
   return (

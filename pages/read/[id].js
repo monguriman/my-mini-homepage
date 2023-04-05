@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Link from 'next/link';
 
 export default function Read() {
     const router = useRouter();
@@ -17,6 +18,7 @@ export default function Read() {
         <>
         <h3>{topic.title}</h3>
         {topic.body}
+        <Link href="/bulletinboard">게시판으로</Link>
         </>
     )
 }
