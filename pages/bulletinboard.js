@@ -13,7 +13,7 @@ export default function BulletinBoard() {
       setTopics(result);
       console.log(result);
     })
-  }, [router.asPath, topics.length] )
+  }, [router.asPath] )
 
   //삭제버튼 클릭시 삭제 후 글목록을 재렌더링
   const deleteTopic = (id) => {
