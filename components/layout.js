@@ -7,7 +7,7 @@ export default function Layout( {children} ) {
                 <li><Link href="/">Home</Link></li>
                 <li><Link href="/about">About</Link></li>
                 <li><Link href="/services">Our Service</Link></li>
-                <li><Link href="/bulletinboard">Q & A</Link></li>
+                <li><Link href="/bulletinboard">Memos</Link></li>
             </ul>
             
             <article className='MainBoxContainer'>

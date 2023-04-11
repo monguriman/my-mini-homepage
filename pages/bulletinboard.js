@@ -1,6 +1,11 @@
 import Link from 'next/link';
 import {useRouter} from 'next/router';
 import { useEffect, useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import ListGroup from 'react-bootstrap/ListGroup';
+import 'bootstrap/dist/css/bootstrap.css';
+import Badge from 'react-bootstrap/Badge';
+
 
 export default function BulletinBoard() {
   const [topics, setTopics] = useState([]);
@@ -11,7 +16,6 @@ export default function BulletinBoard() {
     .then( resp => resp.json() )
     .then( result => {
       setTopics(result);
-      console.log(result);
     })
   }, [router.asPath] )
 
@@ -29,17 +33,19 @@ export default function BulletinBoard() {
 
   //글목록과 삭제버튼 생성. 
   const lis = topics.map( (t) => {
-    return <div><li key={t.id}>
+    return <ListGroup.Item key={t.id} as="li" className="d-flex justify-content-between align-items-start">
       <Link href={"/read/"+t.id}>{t.title}</Link>
-      <button onClick={ (e) => deleteTopic(t.id) }>삭제</button>
-    </li></div>
+      <Badge bg="warning" text="dark" onClick={ (e) => deleteTopic(t.id) }>삭제</Badge>
+    </ListGroup.Item>
   })
 
   return (
     <>
     <h3>글 목록</h3>
+    <ListGroup>
       {lis}
-    <Link href="/create">글쓰기</Link>
+    </ListGroup>
+    <Button variant="primary" href="/create">글쓰기</Button>
     </>
   )
 }
