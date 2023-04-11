@@ -18,6 +18,7 @@ export default function Home() {
 }
 
 const Headings = styled.h1`
+  align-self: center;
   color: #2b3b34;
 `
 

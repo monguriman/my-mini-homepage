@@ -6,7 +6,6 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import 'bootstrap/dist/css/bootstrap.css';
 import Badge from 'react-bootstrap/Badge';
 
-
 export default function BulletinBoard() {
   const [topics, setTopics] = useState([]);
   const router = useRouter();
@@ -41,7 +40,7 @@ export default function BulletinBoard() {
 
   return (
     <>
-    <h3>글 목록</h3>
+    <h3>Memos</h3>
     <ListGroup>
       {lis}
     </ListGroup>
@@ -49,3 +48,4 @@ export default function BulletinBoard() {
     </>
   )
 }
+

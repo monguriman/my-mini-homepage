@@ -1,5 +1,5 @@
 export default function Services() {
     return (
-        <div>우리의 서비스는 짱 멋지고 구구절절 오나전 대박입니다.</div>
+        <div>The Musée d'Art moderne de la ville de Paris is a contemporary art museum in Paris with a diverse collection of works from the 20th and 21st centuries.</div>
     )
 }

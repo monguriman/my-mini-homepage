@@ -42,3 +42,7 @@ body {
     height: 700px;
     background-color: #f6fff8;
 }
+
+a {
+    text-decoration: none;
+}
